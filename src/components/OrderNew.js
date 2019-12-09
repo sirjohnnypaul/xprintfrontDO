@@ -56,7 +56,7 @@ export default class OrderNew extends Component {
 
     componentDidMount() {
 
-      fetch('https://fast-tundra-44381.herokuapp.com/users/'+this.state.id, {
+      fetch('104.248.24.223:2530/users/'+this.state.id, {
         method: 'get',
         headers: {
           'Authorization': 'Bearer '+'1@3API4!2XPR_INT#1%90X12@!nc_kjdqu%fx1176&960kaJS1_3jku21X23#%!tn0ip_r2!s1%A0l1!'
@@ -166,7 +166,7 @@ export default class OrderNew extends Component {
       formData.append("label","uploaded");
       formData.append("fileNameExtra",fileNameGenerated)
 
-      fetch("https://fast-tundra-44381.herokuapp.com/orders/files", {
+      fetch("104.248.24.223:2530/orders/files", {
         method: 'post',
         body: formData,
         headers: {
@@ -281,7 +281,7 @@ export default class OrderNew extends Component {
     const data = await new FormData();
     await data.append('file', this.state.selectedFile,this.state.selectedFile.name);
 
-    await fetch('https://fast-tundra-44381.herokuapp.com/orders/uploadFile', {
+    await fetch('104.248.24.223:2530/orders/uploadFile', {
       method: 'POST',
       body: data,
       headers: {
@@ -314,7 +314,7 @@ checkAndSend(){
 
     console.log(newOrder);
 
-    fetch('https://fast-tundra-44381.herokuapp.com/orders', {
+    fetch('104.248.24.223:2530/orders', {
       method: 'post',
       body: JSON.stringify(newOrder),
       headers: {
@@ -346,7 +346,7 @@ checkAndSend(){
           let stringToPass =[account_id,amount,crc,code]
           let joined = stringToPass.join('');
           hash = md5(joined);
-          const url = `https://secure.tpay.com?id=${account_id}&amount=${amount}&description=${description}&md5sum=${hash}&crc=${crc}&online=${online}&result_url=https://fast-tundra-44381.herokuapp.com/verify/paymentstatus&return_url= https://aqueous-eyrie-26612.herokuapp.com/paymentSuccesfull&return_error_url=https://aqueous-eyrie-26612.herokuapp.com/paymentFailed`;          
+          const url = `https://secure.tpay.com?id=${account_id}&amount=${amount}&description=${description}&md5sum=${hash}&crc=${crc}&online=${online}&result_url=104.248.24.223:2530/verify/paymentstatus&return_url= https://aqueous-eyrie-26612.herokuapp.com/paymentSuccesfull&return_error_url=https://aqueous-eyrie-26612.herokuapp.com/paymentFailed`;          
           console.log(url);
           window.location.replace(url);
         });

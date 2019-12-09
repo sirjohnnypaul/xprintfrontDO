@@ -157,7 +157,7 @@ export default class Register extends Component {
       accountType: "user"
     }
 
-    fetch('https://fast-tundra-44381.herokuapp.com/users/', {
+    fetch('104.248.24.223:2530/users/', {
       method: 'post',
       body: JSON.stringify(user),
       headers: {

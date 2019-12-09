@@ -6,7 +6,7 @@ export default class Navbar extends Component {
 
     return (
 <nav class="navbar navbar-expand-lg navbar-light bg-navbar d-flex">
-    <a class="navbar-brand navbar-font" href="#">
+    <a class="navbar-brand navbar-font" href="/">
     <img src={logo} width="40" height="40" className="mr-1" alt=""/>
     xPRINT
     </a>
