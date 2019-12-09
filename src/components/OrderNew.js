@@ -346,7 +346,7 @@ checkAndSend(){
           let stringToPass =[account_id,amount,crc,code]
           let joined = stringToPass.join('');
           hash = md5(joined);
-          const url = `https://secure.tpay.com?id=${account_id}&amount=${amount}&description=${description}&md5sum=${hash}&crc=${crc}&online=${online}&result_url=104.248.24.223:2530/verify/paymentstatus&return_url= https://aqueous-eyrie-26612.herokuapp.com/paymentSuccesfull&return_error_url=https://aqueous-eyrie-26612.herokuapp.com/paymentFailed`;          
+          const url = `https://secure.tpay.com?id=${account_id}&amount=${amount}&description=${description}&md5sum=${hash}&crc=${crc}&online=${online}&result_url=104.248.24.223:2530/verify/paymentstatus&return_url=104.248.24.223:3000/paymentSuccesfull&return_error_url=104.248.24.223:3000/paymentFailed`;          
           console.log(url);
           window.location.replace(url);
         });
