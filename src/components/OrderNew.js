@@ -56,7 +56,7 @@ export default class OrderNew extends Component {
 
     componentDidMount() {
 
-      fetch('104.248.24.223:2530/users/'+this.state.id, {
+      fetch('localhost:2530/users/'+this.state.id, {
         method: 'get',
         headers: {
           'Authorization': 'Bearer '+'1@3API4!2XPR_INT#1%90X12@!nc_kjdqu%fx1176&960kaJS1_3jku21X23#%!tn0ip_r2!s1%A0l1!'
@@ -166,7 +166,7 @@ export default class OrderNew extends Component {
       formData.append("label","uploaded");
       formData.append("fileNameExtra",fileNameGenerated)
 
-      fetch("104.248.24.223:2530/orders/files", {
+      fetch("localhost:2530/orders/files", {
         method: 'post',
         body: formData,
         headers: {
@@ -281,7 +281,7 @@ export default class OrderNew extends Component {
     const data = await new FormData();
     await data.append('file', this.state.selectedFile,this.state.selectedFile.name);
 
-    await fetch('104.248.24.223:2530/orders/uploadFile', {
+    await fetch('localhost:2530/orders/uploadFile', {
       method: 'POST',
       body: data,
       headers: {
@@ -314,7 +314,7 @@ checkAndSend(){
 
     console.log(newOrder);
 
-    fetch('104.248.24.223:2530/orders', {
+    fetch('localhost:2530/orders', {
       method: 'post',
       body: JSON.stringify(newOrder),
       headers: {
@@ -341,12 +341,12 @@ checkAndSend(){
           const description = `Payment ${responseData._id}`;
           const crc = responseData._id;
           const online = 1;
-          const code = 'mWTfY3yOx6JGE5No';
+          const code = '';
           let hash = '';
           let stringToPass =[account_id,amount,crc,code]
           let joined = stringToPass.join('');
           hash = md5(joined);
-          const url = `https://secure.tpay.com?id=${account_id}&amount=${amount}&description=${description}&md5sum=${hash}&crc=${crc}&online=${online}&result_url=104.248.24.223:2530/verify/paymentstatus&return_url=104.248.24.223:3000/paymentSuccesfull&return_error_url=104.248.24.223:3000/paymentFailed`;          
+          const url = `https://secure.tpay.com?id=${account_id}&amount=${amount}&description=${description}&md5sum=${hash}&crc=${crc}&online=${online}&result_url=localhost:2530/verify/paymentstatus&return_url=localhost:3000/paymentSuccesfull&return_error_url=localhost:3000/paymentFailed`;          
           console.log(url);
           window.location.replace(url);
         });
