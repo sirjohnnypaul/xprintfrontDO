@@ -35,7 +35,7 @@ export default class Login extends Component {
       password: this.state.password
     }
 
-    fetch('104.248.24.223:2530/users/login', {
+    fetch('localhost:2530/users/login', {
       method: 'post',
       body: JSON.stringify(user),
       headers: {
