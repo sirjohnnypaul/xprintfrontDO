@@ -18,7 +18,7 @@ export default class Panel extends Component {
 
   componentDidMount() {
     
-    fetch('104.248.24.223:2530/users/'+this.state.id, {
+    fetch('localhost:2530/users/'+this.state.id, {
       method: 'get',
       headers: {
         'Authorization': 'Bearer '+'1@3API4!2XPR_INT#1%90X12@!nc_kjdqu%fx1176&960kaJS1_3jku21X23#%!tn0ip_r2!s1%A0l1!'
